@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/Phonenumber%20Screen/model/country_code_screen.dart';
+import 'package:spotify_clone/PhonenumberScreen/model/country_code_screen.dart';
 import 'package:spotify_clone/constant/color.dart';
 import 'package:spotify_clone/screens/premiumScreen/premium_screen.dart';
 
 import 'package:spotify_clone/user_login.dart';
 import 'package:spotify_clone/user_signup.dart';
-import 'package:spotify_clone/Phonenumber Screen/number_verification_screen.dart';
+import 'package:spotify_clone/PhonenumberScreen/number_verification_screen.dart';
 
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/Phonenumber%20Screen/number_verification_screen.dart';
+import 'package:spotify_clone/PhonenumberScreen/number_verification_screen.dart';
 import 'package:spotify_clone/constant/color.dart';
 import 'package:spotify_clone/user_signup.dart';
 import 'package:spotify_clone/customWidget/custom_outlined_button.dart';

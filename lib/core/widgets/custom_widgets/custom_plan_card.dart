@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/customWidget/custom_card.dart';
-import 'package:spotify_clone/customWidget/custom_outlined_button.dart';
-import 'package:spotify_clone/customWidget/custom_text.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_card.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
+
 
 class CustomPlanCard extends StatelessWidget {
   const CustomPlanCard(
@@ -26,7 +27,7 @@ class CustomPlanCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      color: cardColor,
+      color: AppColor.cardColor,
       childWidget: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -73,14 +74,14 @@ class CustomPlanCard extends StatelessWidget {
                     text: '\u{20B9}$planPrice /month after',
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
-                    color: subtitleText,
+                    color: AppColor.subtitleText,
                   )
                 :  Container(),
             const SizedBox(
               height: 10,
             ),
-            const Divider(
-              color: cardDividerColor,
+            Divider(
+              color: AppColor.cardDividerColor,
               thickness: 3,
             ),
             const SizedBox(
@@ -93,9 +94,9 @@ class CustomPlanCard extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 4.0 ,),
                   child: Text(
                     bulletPoints,
-                    style: const TextStyle(
+                    style:  TextStyle(
                         fontSize: 16,
-                      color: white,
+                      color: AppColor.white,
                       fontWeight: FontWeight.bold
                     ),
                   ),
@@ -112,8 +113,8 @@ class CustomPlanCard extends StatelessWidget {
                   width: 500,
                   childWidget: Text(
                       'Get Premium $planHeaderText',
-                    style: const TextStyle(
-                      color: black,
+                    style: TextStyle(
+                      color: AppColor.black,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -123,7 +124,7 @@ class CustomPlanCard extends StatelessWidget {
             const SizedBox(height: 15,),
 
             planPrice! > 59
-                ?const Center(
+                ? Center(
               child: CustomOutlinedButton(
                 borderRadius: 30,
                 height: 55,
@@ -131,7 +132,7 @@ class CustomPlanCard extends StatelessWidget {
                 childWidget: Text(
                   'One-time payment',
                   style: TextStyle(
-                    color: white,
+                    color: AppColor.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -145,8 +146,8 @@ class CustomPlanCard extends StatelessWidget {
                 child:RichText(
                   textAlign: TextAlign.center,
                     text: TextSpan(
-                    style: const TextStyle(
-                      color: grey,
+                    style:  TextStyle(
+                      color: AppColor.grey,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),

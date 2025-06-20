@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/customWidget/custom_outlined_button.dart';
-import 'package:spotify_clone/customWidget/custom_text.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
+
 
 class PremiumScreenHeaderText extends StatelessWidget {
   const PremiumScreenHeaderText({super.key});
@@ -51,8 +52,8 @@ class PremiumScreenHeaderText extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Padding(
-          padding:  EdgeInsets.all(8.0),
+         Padding(
+          padding: const  EdgeInsets.all(8.0),
           child: Center(
             child: CustomOutlinedButton(
               height: 45,
@@ -60,7 +61,7 @@ class PremiumScreenHeaderText extends StatelessWidget {
               childWidget: Text(
                 'Get Premium Individual',
                 style: TextStyle(
-                  color: black,
+                  color: AppColor.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
                 ),
@@ -73,13 +74,13 @@ class PremiumScreenHeaderText extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child:RichText
-            (text: const TextSpan(
+            (text:  TextSpan(
               style: TextStyle(
-                color: subtitleText,
+                color: AppColor.subtitleText,
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
               ),
-              children: <TextSpan>[
+              children: const <TextSpan>[
                 TextSpan(
                     text:'\u{20B9}119 for 2 months, then \u{20B9}119 per month after.Offer only available if you haven\'t tried Premium before.'),
                 TextSpan(

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/customWidget/custom_outlined_button.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class SignupEmailPage extends StatefulWidget {
+  const SignupEmailPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<SignupEmailPage> createState() => _SignupEmailPageState();
 }
 
 class EmailValidator {
@@ -25,16 +25,14 @@ class EmailValidator {
   }
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignupEmailPageState extends State<SignupEmailPage> {
 
   EmailValidator _emailValidator = EmailValidator();
   TextEditingController _emailcontroller = TextEditingController();
   String hintText = 'Don\'t forget to enter your email address.';
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor:  const Color(0xff1a1a1a),
       body: Column(
@@ -50,18 +48,18 @@ class _SignUpPageState extends State<SignUpPage> {
                     Navigator.of(context).pop();
                   },
                   child: const Icon(
-                      Icons.arrow_back,
+                    Icons.arrow_back,
                     color: Colors.white,
                     size: 30,
                   ),
                 ),
                 const SizedBox(width: 110,),
                 const Text(
-                    'Create account',
+                  'Create account',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 17
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17
 
                   ),
                 ),
@@ -113,23 +111,23 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
                 const SizedBox(height: 5,),
-                 Text(
-                   _emailcontroller.text.isEmpty
-                       ? 'Don\'t forget to enter your email address.'
-                       : (_emailValidator.isValid()
-                       ? 'You need to confirm this email later.'
-                       : 'This email is invalid. Make sure it\'s written as example@email.com'),
+                Text(
+                  _emailcontroller.text.isEmpty
+                      ? 'Don\'t forget to enter your email address.'
+                      : (_emailValidator.isValid()
+                      ? 'You need to confirm this email later.'
+                      : 'This email is invalid. Make sure it\'s written as example@email.com'),
                   style:  const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500
                   ),
                 ),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: CustomOutlinedButton(
-                     onPressed: (){
-                     },
+                      onPressed: (){
+                      },
                       childWidget: const Text(
                         'Next',
                         style: TextStyle(
@@ -139,8 +137,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       height: 45,
                       width: 100,
-                      backgroundColor: _emailcontroller.text.isEmpty ? inActiveButtonColor : white,
-                      borderSideColor: transparent,
+                      backgroundColor: _emailcontroller.text.isEmpty ? AppColor.inActiveButtonColor : AppColor.white,
+                      borderSideColor:AppColor.transparent,
                       borderRadius: 100,
                     ),
                   ),
@@ -153,4 +151,3 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-

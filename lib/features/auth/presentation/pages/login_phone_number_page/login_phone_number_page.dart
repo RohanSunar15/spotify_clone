@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
-class PhoneNumberScreen extends StatefulWidget {
-  const PhoneNumberScreen({super.key});
+class LoginPhoneNumberPage extends StatefulWidget {
+  const LoginPhoneNumberPage({super.key});
 
   @override
-  State<PhoneNumberScreen> createState() => _PhoneNumberScreenState();
+  State<LoginPhoneNumberPage> createState() => _LoginPhoneNumberPageState();
 }
 
-class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
+class _LoginPhoneNumberPageState extends State<LoginPhoneNumberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,37 +57,37 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                 Container(
-                   decoration: const BoxDecoration(
-                     color: Color(0xff484646),
-                   ),
-                   padding: const EdgeInsets.all(0),
-                   child: const Column(
-                     children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    color: Color(0xff484646),
+                  ),
+                  padding: const EdgeInsets.all(0),
+                  child: const Column(
+                    children: [
 
-                       Padding(
-                         padding: EdgeInsets.all(8.0),
-                         child: Row(
-                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                           children: [
-                             Text(
-                               'India ',
-                               style: TextStyle(
-                                 color: Colors.white,
-                                 fontSize: 25,
-                               ),
-                             ),
-                             Icon(
-                               Icons.arrow_forward_ios,
-                               color: Colors.white,
-                             ),
-                           ],
-                         ),
-                       )
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'India ',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
+                      )
 
-                     ],
-                   ),
-                 ),
+                    ],
+                  ),
+                ),
 
                 TextFormField(
                   keyboardType: TextInputType.number,
@@ -101,7 +99,7 @@ class _PhoneNumberScreenState extends State<PhoneNumberScreen> {
                     filled: true,
                     hintText: "Phone number",
                     hintStyle: TextStyle(
-                      color: Colors.grey
+                        color: Colors.grey
                     ),
                     fillColor: Color(0xff484646),
                   ),

@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/PhonenumberScreen/model/country_code_screen.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/screens/premiumScreen/premium_screen.dart';
-
-import 'package:spotify_clone/user_login.dart';
-import 'package:spotify_clone/user_signup.dart';
-import 'package:spotify_clone/PhonenumberScreen/number_verification_screen.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/login_method_page/login_method_page.dart';
 
 
 void main() {
@@ -22,15 +17,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
-        textSelectionTheme: const TextSelectionThemeData(
-          selectionColor: selectionColor,
-          selectionHandleColor: selectionHandleColor,
-          cursorColor: white,
+        textSelectionTheme:  TextSelectionThemeData(
+          selectionColor: AppColor.selectionColor,
+          selectionHandleColor: AppColor.selectionHandleColor,
+          cursorColor: AppColor.white,
         )
 
       ),
 
-      home: UserLogin(),
+      home: const LoginMethodPage(),
     );
   }
 }

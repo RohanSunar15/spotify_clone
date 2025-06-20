@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/PhonenumberScreen/number_verification_screen.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/user_signup.dart';
-import 'package:spotify_clone/customWidget/custom_outlined_button.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/login_phone_number_page/login_phone_number_page.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/signup_method_page/signup_method_page.dart';
 
-class UserLogin extends StatefulWidget {
-  const UserLogin({super.key});
+class LoginMethodPage extends StatefulWidget {
+  const LoginMethodPage({super.key});
 
   @override
-  State<UserLogin> createState() => _UserLoginState();
+  State<LoginMethodPage> createState() => _LoginMethodPageState();
 }
 
-class _UserLoginState extends State<UserLogin> {
+class _LoginMethodPageState extends State<LoginMethodPage> {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
@@ -73,22 +73,22 @@ class _UserLoginState extends State<UserLogin> {
                     onPressed:() {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const SignUpPage()),
+                        MaterialPageRoute(builder: (context) => const SignupMethodPage()),
                       );
 
                     },
-                      childWidget: const Text('Sign up for free ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    childWidget: const Text('Sign up for free ',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
                       ),
+                    ),
                     height: 55,
-                    backgroundColor: green,
-                    borderSideColor: green,
+                    backgroundColor: AppColor.green,
+                    borderSideColor: AppColor.green,
                     borderRadius: 30 ,
-                    overlayColor: black,
+                    overlayColor: AppColor.black,
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   //continue with the phone
@@ -96,31 +96,31 @@ class _UserLoginState extends State<UserLogin> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const PhoneNumberScreen()),
+                        MaterialPageRoute(builder: (context) => const LoginPhoneNumberPage()),
                       );
                     },
-                      childWidget: Padding(
-                        padding: EdgeInsets.symmetric(vertical: screenHeight * 0.003),
-                        child: const Row(
-                          children: [
-                            const Icon(
-                              Icons.phone_android_outlined,
+                    childWidget: Padding(
+                      padding: EdgeInsets.symmetric(vertical: screenHeight * 0.003),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.phone_android_outlined,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            'Continue with phone number',
+                            style: TextStyle(
                               color: Colors.white,
+                              fontSize: 19,
+                              fontWeight: FontWeight.bold,
                             ),
-                            const Text(
-                              'Continue with phone number',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
+                    ),
                     height: 55,
                     borderRadius: 35,
-                    borderSideColor: grey,
+                    borderSideColor: AppColor.grey,
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   //Continue with google
@@ -147,7 +147,7 @@ class _UserLoginState extends State<UserLogin> {
                     ),
                     height: 55,
                     borderRadius: 35,
-                    borderSideColor: grey,
+                    borderSideColor: AppColor.grey,
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   CustomOutlinedButton(
@@ -162,7 +162,7 @@ class _UserLoginState extends State<UserLogin> {
                         const Text(
                           'Continue with Facebook',
                           style: TextStyle(
-                              color: Colors.white,
+                            color: Colors.white,
                             fontSize: 19,
                             fontWeight: FontWeight.bold,
                           ),
@@ -171,7 +171,7 @@ class _UserLoginState extends State<UserLogin> {
                     ),
                     height: 55,
                     borderRadius: 35,
-                    borderSideColor: grey,
+                    borderSideColor: AppColor.grey,
                   ),
                   SizedBox(height: screenHeight * 0.01),
                   InkWell(
@@ -179,9 +179,9 @@ class _UserLoginState extends State<UserLogin> {
                     child: const Text(
                       'Log in',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold
                       ),
                       textAlign: TextAlign.center,
                     ),

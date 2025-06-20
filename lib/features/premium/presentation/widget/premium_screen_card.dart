@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/constant/color.dart';
-import 'package:spotify_clone/customWidget/custom_card.dart';
-import 'package:spotify_clone/customWidget/custom_text.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_card.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
+
 
 class PremiumScreenCard extends StatelessWidget {
   const PremiumScreenCard({super.key});
@@ -9,21 +10,21 @@ class PremiumScreenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      color: cardColor,
+      color: AppColor.cardColor,
       childWidget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 45, bottom: 10, left: 15),
+           Padding(
+            padding: const EdgeInsets.only(top: 45, bottom: 10, left: 15),
             child: CustomText(
               text: 'Why join Premium?',
-              color: white,
+              color: AppColor.white,
               fontWeight: FontWeight.bold,
               fontSize: 22,
             ),
           ),
-          const Divider(
-            color: cardDividerColor,
+           Divider(
+            color: AppColor.cardDividerColor,
             thickness: 2,
           ),
           Row(

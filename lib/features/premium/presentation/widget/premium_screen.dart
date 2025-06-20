@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/customWidget/custom_text.dart';
-import 'package:spotify_clone/screens/premiumScreen/premium_plans_card.dart';
-import 'package:spotify_clone/screens/premiumScreen/premium_screen_card.dart';
-import 'package:spotify_clone/screens/premiumScreen/premium_screen_header_text.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
+import 'package:spotify_clone/features/premium/presentation/widget/premium_plans_card.dart';
+import 'package:spotify_clone/features/premium/presentation/widget/premium_screen_card.dart';
+import 'package:spotify_clone/features/premium/presentation/widget/premium_screen_header_text.dart';
 
 
 

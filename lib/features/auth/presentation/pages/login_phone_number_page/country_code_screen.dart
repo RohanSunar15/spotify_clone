@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/login_phone_number_page/data/data_countrycode.dart';
 
-import 'package:spotify_clone/PhonenumberScreen/data/data_countrycode.dart';
 
 class CountryScreen extends StatefulWidget {
   const CountryScreen({Key? key}) : super(key: key);

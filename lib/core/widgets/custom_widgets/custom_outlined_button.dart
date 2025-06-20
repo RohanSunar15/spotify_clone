@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify_clone/constant/color.dart';
+import 'package:spotify_clone/core/theme/app_color.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   const CustomOutlinedButton({
@@ -44,7 +44,7 @@ class CustomOutlinedButton extends StatelessWidget {
       child: OutlinedButton(
           onPressed: onPressed ?? () {},
           style: OutlinedButton.styleFrom(
-            overlayColor: overlayColor ?? white,
+            overlayColor: overlayColor ?? AppColor.white,
               backgroundColor: backgroundColor,
               padding:padding,
               side: BorderSide(

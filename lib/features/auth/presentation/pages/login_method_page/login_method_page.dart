@@ -17,23 +17,13 @@ class _LoginMethodPageState extends State<LoginMethodPage> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
-    return Material(
-      child: Container(
+    return Scaffold(
+      body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: <Color>[
-              Color(0xff484646),
-              Color(0xff2d2c2c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-              Color(0xff1c1c1c),
-            ],
+            colors: AppColor.welcomePageBackgroundColor,
           ),
         ),
         child: Column(

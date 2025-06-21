@@ -2,6 +2,20 @@ import 'package:flutter/material.dart';
 
 
  class AppColor{
+
+  static const List<Color> welcomePageBackgroundColor= [
+  Color(0xff484646),
+  Color(0xff2d2c2c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  Color(0xff1c1c1c),
+  ];
+
+
   static Color transparent = Colors.transparent;
 
 

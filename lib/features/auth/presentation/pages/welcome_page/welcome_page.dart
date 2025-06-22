@@ -51,7 +51,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   'Millions of songs.',
                   style: TextStyle(
                     color: AppColor.white,
-                    fontSize: SizeConfig.screenWidth * 0.07,
+                    fontSize: SizeConfig.screenHeight * 0.032,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -77,7 +77,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   'Sign up for free ',
                   style: TextStyle(
                     color: AppColor.black,
-                    fontSize: SizeConfig.screenWidth * 0.04,
+                    fontSize: SizeConfig.screenHeight * 0.018,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -100,7 +100,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     'Log in',
                     style: TextStyle(
                       color: AppColor.white,
-                      fontSize: SizeConfig.screenWidth * 0.04,
+                      fontSize: SizeConfig.screenHeight * 0.018,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

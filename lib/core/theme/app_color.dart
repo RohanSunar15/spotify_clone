@@ -16,9 +16,11 @@ import 'package:flutter/material.dart';
   ];
 
 
+
   static Color transparent = Colors.transparent;
 
 
+  static Color? backgroundColor =  const  Color(0xff1c1c1c);
   static Color? green = Colors.greenAccent[700];
   static Color selectionColor = const Color(0xBE1D6C2B);
   static Color selectionHandleColor = const Color(0xFF39AE51);

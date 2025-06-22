@@ -36,6 +36,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(OpenWelcomeScreen());
   }
   FutureOr<void> emailButtonTapped(EmailButtonTapped event, Emitter<AuthState> emit) {
+    emit(OpenSignupEmailScreen());
   }
   FutureOr<void> phoneButtonTapped(PhoneButtonTapped event, Emitter<AuthState> emit) {
   }

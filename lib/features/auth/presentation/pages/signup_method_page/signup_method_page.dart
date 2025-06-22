@@ -7,6 +7,7 @@ import 'package:spotify_clone/core/theme/app_icons.dart';
 import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
 import 'package:spotify_clone/features/auth/bloc/auth_bloc.dart';
 import 'package:spotify_clone/features/auth/presentation/pages/login_method_page/login_method_page.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/signup_email_page/signup_email_page.dart';
 
 class SignupMethodPage extends StatefulWidget {
   const SignupMethodPage({super.key});
@@ -24,7 +25,9 @@ class _SignupMethodPageState extends State<SignupMethodPage> {
               if(state is OpenWelcomeScreen){
                 AppNavigator.popScreen(context);
               }else if (state is OpenLoginMethodScreen){
-                AppNavigator.pushToScreen(context, const LoginMethodPage());
+                AppNavigator.pushReplacementScreen(context, const LoginMethodPage());
+              }else if (state is OpenSignupEmailScreen){
+                AppNavigator.pushToScreen(context, const SignupEmailPage());
               }
             },
           child: Container(
@@ -72,7 +75,9 @@ class _SignupMethodPageState extends State<SignupMethodPage> {
 
                 //Continue with email
                 CustomOutlinedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<AuthBloc>().add(EmailButtonTapped());
+                  },
                   childWidget: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -99,6 +104,7 @@ class _SignupMethodPageState extends State<SignupMethodPage> {
                   overlayColor: AppColor.black,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.01),
+
                 //continue with the phone
                 CustomOutlinedButton(
                   onPressed: () {},
@@ -152,25 +158,27 @@ class _SignupMethodPageState extends State<SignupMethodPage> {
                   borderSideColor: AppColor.grey,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.04),
-                const Text(
+
+                //Already have an account
+                Text(
                   'Already have an account?',
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14,
+                      fontSize: SizeConfig.screenWidth * 0.04,
                       fontWeight: FontWeight.bold
                   ),
                   textAlign: TextAlign.center,
                 ),
-
+                SizedBox(height: SizeConfig.screenHeight * 0.01),
                 InkWell(
                   onTap: () {
                     context.read<AuthBloc>().add(LoginTextTapped());
                   },
-                  child: const Text(
+                  child:  Text(
                     'Log in',
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: SizeConfig.screenWidth * 0.045,
                         fontWeight: FontWeight.bold
                     ),
                     textAlign: TextAlign.center,

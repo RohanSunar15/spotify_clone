@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone/core/navigator/app_navigator.dart';
+import 'package:spotify_clone/core/size_config/size_config.dart';
 import 'package:spotify_clone/core/theme/app_color.dart';
 import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
 
@@ -9,27 +11,8 @@ class SignupEmailPage extends StatefulWidget {
   State<SignupEmailPage> createState() => _SignupEmailPageState();
 }
 
-class EmailValidator {
-  bool _isValid = false;
-  final RegExpForGmail = RegExp(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$");
-
-  bool validate(String email) {
-    // Basic email validation logic
-    _isValid = RegExpForGmail.hasMatch(email);
-    return _isValid;
-  }
-
-  bool isValid() {
-    return _isValid;
-
-  }
-}
-
 class _SignupEmailPageState extends State<SignupEmailPage> {
-
-  EmailValidator _emailValidator = EmailValidator();
-  TextEditingController _emailcontroller = TextEditingController();
-  String hintText = 'Don\'t forget to enter your email address.';
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +28,7 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
               children: [
                 GestureDetector(
                   onTap:(){
-                    Navigator.of(context).pop();
+                    AppNavigator.popScreen(context);
                   },
                   child: const Icon(
                     Icons.arrow_back,
@@ -54,12 +37,12 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                   ),
                 ),
                 const SizedBox(width: 110,),
-                const Text(
+                 Text(
                   'Create account',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 17
+                      fontSize: SizeConfig.screenHeight*0.02
 
                   ),
                 ),
@@ -72,52 +55,30 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('What\'s your email',
+                Text(
+                  'What\'s your email address?',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const Text('address?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
+                    fontSize: SizeConfig.screenHeight * 0.03,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Form(
                   child: TextFormField(
-                    controller: _emailcontroller,
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
-                    style:  TextStyle(
-                      color: _emailValidator.isValid() ? Colors.white : Colors.red,
-                    ),
-                    onChanged: (value){
-                      setState(() {
-                        _emailValidator.validate(value);
-                      });
-                    },
-
-                    decoration: InputDecoration(
+                    onChanged: (value){},
+                    decoration: const InputDecoration(
                       filled:true,
-                      fillColor: _emailcontroller.text.isEmpty
-                          ? const Color(0xff484646) // Default color when email is empty
-                          : _emailValidator.isValid()
-                          ? const Color(0xff484646) // Color when email is valid and not empty
-                          : Colors.white, // Color when email is not valid and not empty
+                      fillColor:  Color(0xff484646),
                       border: InputBorder.none,
                     ),
                   ),
                 ),
                 const SizedBox(height: 5,),
-                Text(
-                  _emailcontroller.text.isEmpty
-                      ? 'Don\'t forget to enter your email address.'
-                      : (_emailValidator.isValid()
-                      ? 'You need to confirm this email later.'
-                      : 'This email is invalid. Make sure it\'s written as example@email.com'),
-                  style:  const TextStyle(
+                const Text(
+                  'You\'ll need to confirm this email later.',
+                  style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w500
                   ),
@@ -135,9 +96,9 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                           color: Colors.black,
                         ),
                       ),
-                      height: 45,
-                      width: 100,
-                      backgroundColor: _emailcontroller.text.isEmpty ? AppColor.inActiveButtonColor : AppColor.white,
+                      height: SizeConfig.screenHeight*0.05,
+                      width: SizeConfig.screenWidth *0.25,
+                      backgroundColor: AppColor.inActiveButtonColor,
                       borderSideColor:AppColor.transparent,
                       borderRadius: 100,
                     ),

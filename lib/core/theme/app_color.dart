@@ -33,6 +33,7 @@ import 'package:flutter/material.dart';
   static Color inActiveButtonColor = const Color(0xFF484646);
   static Color subtitleText = const Color(0xffa7a7a7);
   static  Color inactiveBottomBarItemColor = const Color(0xffababab);
+  static  Color appBarColor = const Color(0xff282828);
 
 //premium screen plan color
   static Color miniPlan = const Color(0xFF8FB31F);

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:spotify_clone/core/size_config/size_config.dart';
+import 'package:spotify_clone/core/supabase_config/supabase_config.dart';
 import 'package:spotify_clone/core/theme/app_color.dart';
 import 'package:spotify_clone/features/auth/bloc/auth_bloc.dart';
 import 'package:spotify_clone/features/auth/presentation/pages/welcome_page/welcome_page.dart';
 
 
-void main() {
+void main() async {
+
+  await dotenv.load();
+  await SupabaseConfig.initialize();
+
   runApp(
     MultiBlocProvider(
     providers: [

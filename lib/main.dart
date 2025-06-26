@@ -10,6 +10,7 @@ import 'package:spotify_clone/features/auth/presentation/pages/welcome_page/welc
 
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load();
   await SupabaseConfig.initialize();
@@ -38,6 +39,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          color: AppColor.appBarColor
+        ),
+        scaffoldBackgroundColor: AppColor.backgroundColor,
         textSelectionTheme:  TextSelectionThemeData(
           selectionColor: AppColor.selectionColor,
           selectionHandleColor: AppColor.selectionHandleColor,

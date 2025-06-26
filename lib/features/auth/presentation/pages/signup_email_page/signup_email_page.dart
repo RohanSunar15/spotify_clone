@@ -3,6 +3,7 @@ import 'package:spotify_clone/core/navigator/app_navigator.dart';
 import 'package:spotify_clone/core/size_config/size_config.dart';
 import 'package:spotify_clone/core/theme/app_color.dart';
 import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
+import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
 
 class SignupEmailPage extends StatefulWidget {
   const SignupEmailPage({super.key});
@@ -37,15 +38,13 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                   ),
                 ),
                 const SizedBox(width: 110,),
-                 Text(
-                  'Create account',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: SizeConfig.screenHeight*0.02
-
-                  ),
+                CustomText(
+                  text: 'Create account',
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: SizeConfig.screenHeight * 0.02,
                 ),
+
 
               ],
             ),
@@ -55,13 +54,11 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'What\'s your email address?',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: SizeConfig.screenHeight * 0.03,
-                    fontWeight: FontWeight.bold,
-                  ),
+                CustomText(
+                  text: 'What\'s your email address?',
+                  color: Colors.white,
+                  fontSize: SizeConfig.screenHeight * 0.032,
+                  fontWeight: FontWeight.bold,
                 ),
                 Form(
                   child: TextFormField(
@@ -76,26 +73,23 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                   ),
                 ),
                 const SizedBox(height: 5,),
-                const Text(
-                  'You\'ll need to confirm this email later.',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500
-                  ),
+                const CustomText(
+                  text: 'You\'ll need to confirm this email later.',
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
                 ),
+
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Center(
                     child: CustomOutlinedButton(
                       onPressed: (){
                       },
-                      childWidget: const Text(
-                        'Next',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.black,
-                        ),
-                      ),
+                      childWidget:const CustomText(
+                      text: 'Next',
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
                       height: SizeConfig.screenHeight*0.05,
                       width: SizeConfig.screenWidth *0.25,
                       backgroundColor: AppColor.inActiveButtonColor,

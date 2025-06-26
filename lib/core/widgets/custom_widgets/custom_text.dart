@@ -25,7 +25,7 @@ class CustomText extends StatelessWidget {
   final GestureRecognizer? recognizer;
   final Color? color;
   final TextDecoration? decoration;
-  final textSpan;
+  final TextSpan? textSpan;
 
   @override
   Widget build(BuildContext context) {

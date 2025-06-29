@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
 
-
- class AppColor{
-
-  static const List<Color> welcomePageBackgroundColor= [
-  Color(0xff484646),
-  Color(0xff2d2c2c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
-  Color(0xff1c1c1c),
+class AppColor {
+  static const List<Color> welcomePageBackgroundColor = [
+    Color(0xff484646),
+    Color(0xff2d2c2c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
+    Color(0xff1c1c1c),
   ];
-
-
 
   static Color transparent = Colors.transparent;
 
-
-  static Color? backgroundColor =  const  Color(0xff1c1c1c);
+  static Color? backgroundColor = const Color(0xff1c1c1c);
   static Color? green = Colors.greenAccent[700];
   static Color selectionColor = const Color(0xBE1D6C2B);
   static Color selectionHandleColor = const Color(0xFF39AE51);
@@ -32,8 +27,10 @@ import 'package:flutter/material.dart';
   static Color cardDividerColor = const Color(0xFF323131);
   static Color inActiveButtonColor = const Color(0xFF484646);
   static Color subtitleText = const Color(0xffa7a7a7);
-  static  Color inactiveBottomBarItemColor = const Color(0xffababab);
-  static  Color appBarColor = const Color(0xff282828);
+  static Color inactiveBottomBarItemColor = const Color(0xffababab);
+  static Color appBarColor = const Color(0xff282828);
+  static Color? inActiveTextFieldColor = Colors.grey[700];
+  static Color activeTextFieldColor = const Color(0xff484646);
 
 //premium screen plan color
   static Color miniPlan = const Color(0xFF8FB31F);
@@ -42,9 +39,3 @@ import 'package:flutter/material.dart';
   static Color duoPlan = const Color(0x9EF4DB52);
   static Color studentPlan = const Color(0x9ED88CC6);
 }
-
-
-
-
-
-

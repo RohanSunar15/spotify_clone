@@ -1,16 +1,48 @@
-# spotify_clone
+# 🎧 Spotify Clone App
 
-A new Flutter project.
+A full-stack Spotify clone app built using **Flutter**, **Supabase**, and **Node.js**. This project demonstrates a scalable architecture with audio playback, authentication, and playlist features—replicating core Spotify functionalities.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 Email authentication using Supabase
+- 🎵 Audio playback with controls (play, pause, skip)
+- 🔍 Search songs and artists
+- 🧾 Create & manage playlists
+- ❤️ Like/Favorite songs
+- 🌙 Light/Dark mode
+- 🧱 Follows Clean Architecture (presentation → domain → data)
+- 📡 REST API powered by Node.js
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧰 Tech Stack
+
+### Frontend
+- **Flutter**
+- **Clean Architecture** (presentation, domain, data layers)
+- **BLoC** for state management
+- **Audio playback** with `just_audio` or similar package
+- **Dark/Light Theme Support**
+
+### Backend
+- **Node.js**
+- **Express.js**
+- **Supabase** as Database and Auth
+- **REST APIs** for song data and playlist management
+
+---
+
+## 📁 Folder Structure
+
+```bash
+/lib
+ ├── core/
+ ├── features/
+ │   └── music/
+ │       ├── data/
+ │       ├── domain/
+ │       └── presentation/
+ ├── services/
+ └── main.dart

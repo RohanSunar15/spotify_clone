@@ -31,6 +31,7 @@ class AppColor {
   static Color appBarColor = const Color(0xff282828);
   static Color? inActiveTextFieldColor = Colors.grey[700];
   static Color activeTextFieldColor = const Color(0xff484646);
+  static Color passwordTextField = const Color(0xFF8F8C8C);
 
 //premium screen plan color
   static Color miniPlan = const Color(0xFF8FB31F);

@@ -31,3 +31,5 @@ class EmailValid extends AuthState {
     required this.isEmailValid,
   });
 }
+
+class OpenCreatePasswordScreen extends AuthState {}

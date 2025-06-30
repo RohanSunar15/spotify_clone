@@ -11,7 +11,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //Welcome Screen
     on<SignupButtonTapped>(signupButtonTapped);
     on<LoginButtonTapped>(loginButtonTapped);
-
     on<BackButtonTapped>(backButtonTapped);
 
     //Signup Method Screen
@@ -22,6 +21,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     //Signup Email Screen
     on<EmailChanged>(emailChanged);
+    on<NextButtonTapped>(nextButtonTapped);
   }
   //Welcome Screen
   FutureOr<void> signupButtonTapped(
@@ -70,5 +70,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } else {
       emit(EmailValid(email: email, isEmailValid: false));
     }
+  }
+
+  FutureOr<void> nextButtonTapped(
+      NextButtonTapped event, Emitter<AuthState> emit) {
+    emit(OpenCreatePasswordScreen());
   }
 }

@@ -26,4 +26,6 @@ class EmailChanged extends AuthEvent {
   EmailChanged(this.email);
 }
 
+class NextButtonTapped extends AuthEvent {}
+
 //Signup Phone Screen

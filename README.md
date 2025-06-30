@@ -32,17 +32,3 @@ A full-stack Spotify clone app built using **Flutter**, **Supabase**, and **Node
 - **Supabase** as Database and Auth
 - **REST APIs** for song data and playlist management
 
----
-
-## 📁 Folder Structure
-
-```bash
-/lib
- ├── core/
- ├── features/
- │   └── music/
- │       ├── data/
- │       ├── domain/
- │       └── presentation/
- ├── services/
- └── main.dart

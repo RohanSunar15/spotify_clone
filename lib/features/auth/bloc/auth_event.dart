@@ -8,9 +8,9 @@ class SignupButtonTapped extends AuthEvent {}
 
 class LoginButtonTapped extends AuthEvent {}
 
-//Signup Method Screen
 class BackButtonTapped extends AuthEvent {}
 
+//Signup Method Screen
 class EmailButtonTapped extends AuthEvent {}
 
 class PhoneButtonTapped extends AuthEvent {}
@@ -26,6 +26,21 @@ class EmailChanged extends AuthEvent {
   EmailChanged(this.email);
 }
 
-class NextButtonTapped extends AuthEvent {}
+class PasswordChanged extends AuthEvent {
+  final String password;
+
+  PasswordChanged(this.password);
+}
+
+class DOBChanged extends AuthBloc {
+  final String dob;
+  DOBChanged(this.dob);
+}
+
+class EmailNextButtonTapped extends AuthEvent {}
+
+class PasswordNextButtonTapped extends AuthEvent {}
+
+class DobNextButtonTapped extends AuthEvent {}
 
 //Signup Phone Screen

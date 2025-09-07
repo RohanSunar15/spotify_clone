@@ -6,46 +6,33 @@ import 'package:spotify_clone/core/theme/app_color.dart';
 import 'package:spotify_clone/core/widgets/custom_widgets/custom_outlined_button.dart';
 import 'package:spotify_clone/core/widgets/custom_widgets/custom_text.dart';
 import 'package:spotify_clone/features/auth/bloc/auth_bloc.dart';
-import 'package:spotify_clone/features/auth/presentation/pages/signup_email_page/widget/password_step.dart';
+import 'package:spotify_clone/features/auth/presentation/pages/signup_email_page/widget/dob_step.dart';
 
-class SignupEmailPage extends StatefulWidget {
-  const SignupEmailPage({super.key});
-
-  @override
-  State<SignupEmailPage> createState() => _SignupEmailPageState();
-}
-
-class _SignupEmailPageState extends State<SignupEmailPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final FocusNode _focusNode = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    _focusNode.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
-  void dispose() {
-    _focusNode.dispose();
-    super.dispose();
-  }
+class SignupCreatePasswordPage extends StatelessWidget {
+  const SignupCreatePasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool isFocused = _focusNode.hasFocus;
+    final TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
       backgroundColor: const Color(0xff1a1a1a),
       body: BlocConsumer<AuthBloc, AuthState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is OpenDobScreen) {
+            AppNavigator.pushToScreen(context, const SignupDobStep());
+          }
+        },
         builder: (context, state) {
-          bool isEmailValid = false;
+          bool isPasswordValid = false;
+          bool isError = false;
 
-          if (state is EmailValid) {
-            isEmailValid = state.isEmailValid;
+          if (state is PasswordValid) {
+            isPasswordValid = state.isPasswordValid;
+          }
+
+          if (state is PasswordTooShort) {
+            isError = true;
           }
 
           return Column(
@@ -85,43 +72,35 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     CustomText(
-                      text: 'What\'s your email address?',
+                      text: 'Create a password',
                       color: Colors.white,
-                      fontSize: SizeConfig.screenHeight * 0.032,
+                      fontSize: SizeConfig.screenHeight * 0.025,
                       fontWeight: FontWeight.bold,
                     ),
-                    BlocListener<AuthBloc, AuthState>(
-                      listener: (context, state) {
-                        if (state is BackButtonTapped) {
-                          AppNavigator.popScreen(context);
-                        } else if (state is OpenCreatePasswordScreen) {
-                          AppNavigator.pushToScreen(
-                              context, const SignupCreatePasswordPage());
-                        }
+                    Form(
+                        child: TextFormField(
+                      controller: passwordController,
+                      keyboardType: TextInputType.visiblePassword,
+                      obscureText: true,
+                      style: TextStyle(color: AppColor.white),
+                      onChanged: (value) {
+                        context.read<AuthBloc>().add(PasswordChanged(value));
                       },
-                      child: Form(
-                          child: TextFormField(
-                        controller: _emailController,
-                        focusNode: _focusNode,
-                        keyboardType: TextInputType.emailAddress,
-                        style: TextStyle(color: AppColor.white),
-                        onChanged: (value) {
-                          context.read<AuthBloc>().add(EmailChanged(value));
-                        },
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: isFocused
-                              ? AppColor.inActiveTextFieldColor
-                              : AppColor.activeTextFieldColor,
-                          border: InputBorder.none,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppColor.passwordTextField,
+                        border: InputBorder.none,
+                        suffixIcon: Icon(
+                          Icons.remove_red_eye_rounded,
+                          color: AppColor.white,
                         ),
-                      )),
-                    ),
+                      ),
+                    )),
                     const SizedBox(
                       height: 5,
                     ),
                     const CustomText(
-                      text: 'You\'ll need to confirm this email later.',
+                      text: 'Use at least 10 characters.',
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
                     ),
@@ -130,10 +109,10 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                       child: Center(
                         child: CustomOutlinedButton(
                           onPressed: () {
-                            if (isEmailValid) {
+                            if (isPasswordValid == true) {
                               context
                                   .read<AuthBloc>()
-                                  .add(EmailNextButtonTapped());
+                                  .add(PasswordNextButtonTapped());
                             }
                           },
                           childWidget: const CustomText(
@@ -143,7 +122,7 @@ class _SignupEmailPageState extends State<SignupEmailPage> {
                           ),
                           height: SizeConfig.screenHeight * 0.05,
                           width: SizeConfig.screenWidth * 0.25,
-                          backgroundColor: isEmailValid
+                          backgroundColor: isPasswordValid
                               ? AppColor.white
                               : AppColor.inActiveButtonColor,
                           overlayColor: AppColor.transparent,

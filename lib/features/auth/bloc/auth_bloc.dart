@@ -21,7 +21,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     //Signup Email Screen
     on<EmailChanged>(emailChanged);
-    on<NextButtonTapped>(nextButtonTapped);
+    on<EmailNextButtonTapped>(emailNextButtonTapped);
+    on<PasswordChanged>(passwordChanged);
+    on<PasswordNextButtonTapped>(passwordNextButtonTapped);
   }
   //Welcome Screen
   FutureOr<void> signupButtonTapped(
@@ -52,6 +54,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> googleButtonTapped(
       GoogleButtonTapped event, Emitter<AuthState> emit) {}
+
   FutureOr<void> loginTextTapped(
       LoginTextTapped event, Emitter<AuthState> emit) {
     emit(OpenLoginMethodScreen());
@@ -60,11 +63,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   //Signup Email Screen
   FutureOr<void> emailChanged(EmailChanged event, Emitter<AuthState> emit) {
     final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$');
-    final email = event.email;
+    final email = event.email.trim();
 
-    if (email.isEmpty) {
-      emit(EmailValid(email: email, isEmailValid: false));
-    }
     if (emailRegex.hasMatch(email)) {
       emit(EmailValid(email: email, isEmailValid: true));
     } else {
@@ -72,8 +72,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  FutureOr<void> nextButtonTapped(
-      NextButtonTapped event, Emitter<AuthState> emit) {
+  FutureOr<void> emailNextButtonTapped(
+      EmailNextButtonTapped event, Emitter<AuthState> emit) {
     emit(OpenCreatePasswordScreen());
+  }
+
+  FutureOr<void> passwordChanged(
+      PasswordChanged event, Emitter<AuthState> emit) {
+    final passwordRegex = RegExp(
+      r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{10,}$',
+    );
+
+    final password = event.password;
+
+    if (passwordRegex.hasMatch(password)) {
+      emit(PasswordValid(password: password, isPasswordValid: true));
+    } else if (password.length < 10) {
+      emit(PasswordTooShort());
+    } else {
+      emit(PasswordValid(password: password, isPasswordValid: false));
+    }
+  }
+
+  FutureOr<void> passwordNextButtonTapped(
+      PasswordNextButtonTapped event, Emitter<AuthState> emit) {
+    emit(OpenDobScreen());
   }
 }

@@ -17,7 +17,6 @@ class CustomOutlinedButton extends StatelessWidget {
     this.overlayColor,
   });
 
-
   final void Function()? onPressed;
   final Color? backgroundColor;
   final Color? overlayColor;
@@ -32,9 +31,6 @@ class CustomOutlinedButton extends StatelessWidget {
 
   final Widget childWidget;
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,20 +40,16 @@ class CustomOutlinedButton extends StatelessWidget {
       child: OutlinedButton(
           onPressed: onPressed ?? () {},
           style: OutlinedButton.styleFrom(
-            overlayColor: overlayColor ?? AppColor.white,
+              overlayColor: overlayColor ?? AppColor.white,
               backgroundColor: backgroundColor,
-              padding:padding,
+              padding: padding,
               side: BorderSide(
-                color:borderSideColor ?? Colors.white,
+                color: borderSideColor ?? Colors.white,
+                width: 2,
               ),
               shape: RoundedRectangleBorder(
-                  borderRadius:BorderRadius.circular(
-                      borderRadius ?? 0
-                  )
-              )
-          ),
-          child: childWidget
-      ),
+                  borderRadius: BorderRadius.circular(borderRadius ?? 0))),
+          child: childWidget),
     );
   }
 }
